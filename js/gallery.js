@@ -77,7 +77,7 @@ const images = [
         class="gallery-image"
         src="${picture.preview}"
         data-source="${picture.original}"
-        alt="${picture.discription}"
+        alt="${picture.description}"
       />
     </a>
   </li>`}).join("");
@@ -97,9 +97,9 @@ const images = [
    function onImageClick(evt) {
     evt.preventDefault()
   
-/*     if (evt.target.nodeName !== "IMG") {
+    if (evt.target.nodeName !== "IMG") {
       return
-    } */
+    } 
   
          const instance = basicLightbox.create(`
       <img width="800" height="600" src="${evt.target.dataset.source}">
