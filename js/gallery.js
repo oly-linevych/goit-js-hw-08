@@ -63,19 +63,18 @@ const images = [
       description: 'Lighthouse Coast Sea',
     },
   ];
-  import { galleryItems } from './gallery-items.js';
-  // Change code below this line
-  
+
+
   
   const galleryContainer = document.querySelector('.gallery')
   console.log(galleryContainer)
   
   function createMarkup(pictures) {
-      return pictures.map((picture) => {
-         return `<li class="gallery__item">
-    <a class="gallery__link" href="${picture.original}">
+    return pictures.map((picture) => {
+         return `<li class="gallery-item">
+    <a class="gallery-link" href="${picture.original}">
       <img
-        class="gallery__image"
+        class="gallery-image"
         src="${picture.preview}"
         data-source="${picture.original}"
         alt="${picture.discription}"
@@ -85,33 +84,28 @@ const images = [
     
   }
   
-  
-  const addGalleryMarkup = createMarkup(galleryItems)
-  // console.log(addGalleryMarkup)
+   const addGalleryMarkup = createMarkup(images) 
+
   
   galleryContainer.innerHTML = addGalleryMarkup;
   console.log(galleryContainer)
   
   
   
-  galleryContainer.addEventListener('click', onImageClick);
+  galleryContainer.addEventListener('click', onImageClick); 
   
-  function onImageClick(evt) {
+   function onImageClick(evt) {
     evt.preventDefault()
   
-    if (evt.target.nodeName !== "IMG") {
+/*     if (evt.target.nodeName !== "IMG") {
       return
-    }
+    } */
   
-        const instance = basicLightbox.create(`
+         const instance = basicLightbox.create(`
       <img width="800" height="600" src="${evt.target.dataset.source}">
     `)
-        instance.show()
+        instance.show() 
     
-        galleryContainer.addEventListener("keydown", (evt) => {
-          if (evt.code === "Escape") {
-            instance.close()
-          }
-        })
-  
-      }
+        
+}
+       
